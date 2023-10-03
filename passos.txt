@@ -11,3 +11,9 @@ dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
 dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.22
 
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.16
+
+
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
