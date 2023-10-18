@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CozaStore.Models;
 
 [Table("Cor")]
-    public class Cor
-    {
+public class Cor
+{
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public byte Id { get; set; }
@@ -17,4 +17,9 @@ namespace CozaStore.Models;
     [Required(ErrorMessage = "Informe o Código Da Cor")]
     [StringLength(7, ErrorMessage = "O Código deve possuir no maximo 7 caracteres")]
     public string CodigoHexa { get; set; }
-    }
+
+
+
+    public ICollection<ProdutoEstoque> Estoques { get; set; }
+
+}

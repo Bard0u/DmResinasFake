@@ -13,7 +13,7 @@ public class CarrinhoProduto
     [Key, Column(Order = 2)]
     public int ProdutoEstoqueId { get; set; }
     [ForeignKey("ProdutoEstoqueId")]
-    public ProdtoEstoque ProdtoEstoque { get; set; }
+    public ProdutoEstoque ProdtoEstoque { get; set; }
 
     [Display(Name = "Qtde ")]
     [Required(ErrorMessage = "Informe a Qtde ")]

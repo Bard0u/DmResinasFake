@@ -12,7 +12,10 @@ namespace CozaStore.Models;
         public Produto Produto { get; set; }
 
         [Key, Column(Order = 2)]
-        public byte TagaId { get; set; }
+        public byte TagId { get; set; }
         [ForeignKey("TagId")]
         public Tag Tag { get; set; }
+
+
+
     }

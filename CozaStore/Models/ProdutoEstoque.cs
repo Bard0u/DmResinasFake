@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CozaStore.Models;
 
-[Table("ProdtoEstoque")]
-public class ProdtoEstoque
+[Table("ProdutoEstoque")]
+public class ProdutoEstoque
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -37,4 +37,9 @@ public class ProdtoEstoque
     [Display(Name = "preço com desconto")]
     [Column(TypeName = "decimal(8,2)")]
     public decimal? PrecoDesconto { get; set; }
+
+
+
+
+
 }

@@ -30,4 +30,5 @@ public class Categoria
 
 
 
+    public ICollection<ProdutoCategoria> Produtos { get; set; }
 }
