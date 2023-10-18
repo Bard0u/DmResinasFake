@@ -21,5 +21,4 @@ public class ProdutoFoto
     [Display(Name ="Foto de destaque?")]
 
     public bool Destaque { get; set; } = false;
-
 }

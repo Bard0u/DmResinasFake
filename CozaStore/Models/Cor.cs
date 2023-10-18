@@ -21,5 +21,4 @@ public class Cor
 
 
     public ICollection<ProdutoEstoque> Estoques { get; set; }
-
 }

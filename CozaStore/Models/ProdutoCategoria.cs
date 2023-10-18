@@ -15,8 +15,4 @@ namespace CozaStore.Models;
         public byte CategoriaId { get; set; }
         [ForeignKey("CategoriaId")]
         public Categoria Categoria { get; set; }
-
-
-
-        
     }

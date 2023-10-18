@@ -17,6 +17,5 @@ public class Tag
 
 
 
-
     public ICollection<ProdutoTag> Produtos { get; set; }
 }

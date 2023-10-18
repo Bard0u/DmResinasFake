@@ -15,7 +15,4 @@ namespace CozaStore.Models;
         public byte TagId { get; set; }
         [ForeignKey("TagId")]
         public Tag Tag { get; set; }
-
-
-
     }

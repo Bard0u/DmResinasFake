@@ -37,9 +37,4 @@ public class ProdutoEstoque
     [Display(Name = "preço com desconto")]
     [Column(TypeName = "decimal(8,2)")]
     public decimal? PrecoDesconto { get; set; }
-
-
-
-
-
 }

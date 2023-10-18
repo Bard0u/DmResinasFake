@@ -55,7 +55,7 @@ public class AppDbContext : IdentityDbContext
         #region Relacionamento Muitos para Muitos - ProdutoCategoria
 
         builder.Entity<ProdutoCategoria>().HasKey(
-            pa => new { pa.ProdutoId, pa.CategoriaId }
+            pc => new { pc.ProdutoId, pc.CategoriaId }
         );
 
         builder.Entity<ProdutoCategoria>()
@@ -70,8 +70,8 @@ public class AppDbContext : IdentityDbContext
 
         #region Relacionamento Muitos para Muitos - ProdutoTag
 
-         builder.Entity<ProdutoTag>().HasKey(
-            pa => new { pa.ProdutoId, pa.TagId }
+        builder.Entity<ProdutoTag>().HasKey(
+            pt => new { pt.ProdutoId, pt.TagId }
         );
 
         builder.Entity<ProdutoTag>()
@@ -87,7 +87,21 @@ public class AppDbContext : IdentityDbContext
 
         #region Relacionamento Muitos para Muitos - ProdutoEstoque
 
+        builder.Entity<ProdutoEstoque>()
+            .HasOne(pe => pe.Produto)
+            .WithMany(p => p.Estoques)
+            .HasForeignKey(pe => pe.ProdutoId);
+        builder.Entity<ProdutoEstoque>()
+            .HasOne(pe => pe.Cor)
+            .WithMany(c => c.Estoques)
+            .HasForeignKey(pe => pe.CorId);
+        builder.Entity<ProdutoEstoque>()
+            .HasOne(pe => pe.Tamanho)
+            .WithMany(t => t.Estoques)
+            .HasForeignKey(pe => pe.TamanhoId);
+
         #endregion
 
+        
     }
 }
