@@ -102,6 +102,21 @@ public class AppDbContext : IdentityDbContext
 
         #endregion
 
-        
+        #region Relacionamento Muitos para Muitos - ListaDesejos
+        builder.Entity<ListaDesejo>().HasKey(
+        ld => new { ld.ProdutoId, ld.UsuarioId }
+        );
+
+        builder.Entity<ListaDesejo>()
+            .HasOne(ld => ld.Produto)
+            .WithMany(P => P.ListaDesejos)
+            .HasForeignKey(ld => ld.ProdutoId);
+
+        builder.Entity<ListaDesejo>()
+            .HasOne(ld => ld.Usuario)
+            .WithMany(u => u.Produtos)
+            .HasForeignKey(ld => ld.UsuarioId);
+
+        #endregion
     }
 }
