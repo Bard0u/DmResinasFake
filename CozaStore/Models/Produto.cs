@@ -17,11 +17,11 @@ public class Produto
 
     [Display(Name = "Descrição resumida")]
     [StringLength(300, ErrorMessage = "A Descrição resumida deve possuir no maximo 300 caracteres")]
-    public string Descricaoresumida { get; set; }
+    public string DescricaoResumida { get; set; }
 
     [Display(Name = "Descrição")]
     [StringLength(8000, ErrorMessage = "A Descrição  deve possuir no maximo 8000 caracteres")]
-    public string Descricao { get; set; }
+    public string DescricaoCompleta { get; set; }
 
     [StringLength(10, ErrorMessage = "o SKU deve possuir no maximo 10 caracteres")]
     public string SKU { get; set; }

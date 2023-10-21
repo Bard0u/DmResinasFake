@@ -24,7 +24,7 @@ public class Categoria
     [Display(Name = "Exibir para Banner?")]
     public bool Banner { get; set; } = false;
 
-    public byte? CategoriarPaiId { get; set; }
+    public byte? CategoriaPaiId { get; set; }
     [ForeignKey("CategoriaPaiId")]
     public Categoria CategoriaPai { get; set; }
 
