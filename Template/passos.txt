@@ -1,0 +1,20 @@
+git config --global user.name GalloJunior
+git config --global user.email gallojunior@gmail
+git clone https://github.com/gallojunior/cozastoreB.git
+
+dotnet new gitignore
+
+
+/* Criar a solução e o projeto */
+dotnet new sln --name CozaStore
+dotnet new mvc -o CozaStore -f net6.0
+dotnet sln add CozaStore\CozaStore.csproj
+
+
+/* Instalação dos Pacotes */
+dotnet add package Microsoft.EntityFrameworkCore --version 6.0.22
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.22
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.22
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.16
