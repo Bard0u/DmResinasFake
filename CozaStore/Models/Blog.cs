@@ -11,22 +11,22 @@ public class Blog
     public int Id { get; set; }
 
     [Required(ErrorMessage = "Informe o Nome")]
-    [StringLength(60, ErrorMessage = "O nome deve possuir no maximo 60 caracteres")]
+    [StringLength(60, ErrorMessage = "O Nome deve possuir no máximo 60 caracteres")]
     public string Nome { get; set; }
 
     [Required(ErrorMessage = "Informe o Texto")]
-    [StringLength(600, ErrorMessage = "O Texto deve possuir no maximo 600 caracteres")]
+    [StringLength(600, ErrorMessage = "O Texto deve possuir no máximo 600 caracteres")]
     public string Texto { get; set; }
 
     [StringLength(300)]
     public string Foto { get; set; }
 
     [Display(Name = "Autor")]
-    [Required(ErrorMessage = "Informe o Autor do blog")]
+    [Required(ErrorMessage = "Informe o Autor")]
     public string UsuarioId { get; set; }
     [ForeignKey("UsuarioId")]
     public Usuario Usuario { get; set; }
 
-    [Display(Name ="Data de Cadastro")]
+    [Display(Name = "Data de Cadastro")]
     public DateTime DataCadastro { get; set; } = DateTime.Now;
 }

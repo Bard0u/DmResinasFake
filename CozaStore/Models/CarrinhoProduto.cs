@@ -2,7 +2,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CozaStore.Models;
-    [Table("CarrinhoProduto")]
+
+[Table("CarrinhoProduto")]
 public class CarrinhoProduto
 {
     [Key, Column(Order = 1)]
@@ -13,18 +14,18 @@ public class CarrinhoProduto
     [Key, Column(Order = 2)]
     public int ProdutoEstoqueId { get; set; }
     [ForeignKey("ProdutoEstoqueId")]
-    public ProdutoEstoque ProdtoEstoque { get; set; }
+    public ProdutoEstoque ProdutoEstoque { get; set; }
 
-    [Display(Name = "Qtde ")]
-    [Required(ErrorMessage = "Informe a Qtde ")]
+    [Display(Name = "Qtde")]
+    [Required(ErrorMessage = "Informe a Qtde")]
     public int Qtde { get; set; } = 1;
 
-    [Display(Name = "preço")]
+    [Display(Name = "Preço")]
     [Column(TypeName = "decimal(8,2)")]
-    [Required(ErrorMessage = "Informe o preço de venda")]
+    [Required(ErrorMessage = "Informe o Preço de Venda")]
     public decimal Preco { get; set; }
 
-    [Display(Name = "preço com desconto")]
+    [Display(Name = "Preço com Desconto")]
     [Column(TypeName = "decimal(8,2)")]
     public decimal PrecoDesconto { get; set; }
 }

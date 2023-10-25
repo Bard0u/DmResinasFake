@@ -19,3 +19,4 @@ public class ListaDesejo
     [Display(Name = "Data de Cadastro")]
     public DateTime DataCadastro { get; set; } = DateTime.Now;
 }
+

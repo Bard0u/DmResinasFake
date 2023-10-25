@@ -13,19 +13,17 @@ public class Usuario
     public IdentityUser AccountUser { get; set; }
 
     [Required(ErrorMessage = "Informe o Nome")]
-    [StringLength(60, ErrorMessage = "O nome deve possuir no maximo 60 caracteres")]
+    [StringLength(60, ErrorMessage = "O Nome deve possuir no máximo 60 caracteres")]
     public string Nome { get; set; }
 
     [DataType(DataType.Date)]
-    [Display(Name ="Data de Nascimento")]
+    [Display(Name = "Data de Nascimento")]
     [Required(ErrorMessage = "Informe a Data de Nascimento")]
     public DateTime DataNascimento { get; set; }
 
     [StringLength(300)]
     public string Foto { get; set; }
 
-
-
     public ICollection<ProdutoAvaliacao> Avaliacoes { get; set; }
-    public ICollection<ListaDesejo> Produtos { get; set; }
+    public ICollection<ListaDesejo> ListaDesejos { get; set; }
 }

@@ -25,16 +25,18 @@ public class ProdutoEstoque
     [ForeignKey("CorId")]
     public Cor Cor { get; set; }
 
-    [Display(Name = "Qtde Em Estoque")]
+    [Display(Name = "Qtde em Estoque")]
     [Required(ErrorMessage = "Informe a Qtde em Estoque")]
     public int QtdeEstoque { get; set; }
 
-    [Display(Name = "preço")]
+    [Display(Name = "Preço")]
     [Column(TypeName = "decimal(8,2)")]
-    [Required(ErrorMessage = "Informe o preço de venda")]
     public decimal? Preco { get; set; }
 
-    [Display(Name = "preço com desconto")]
+    [Display(Name = "Preço com Desconto")]
     [Column(TypeName = "decimal(8,2)")]
     public decimal? PrecoDesconto { get; set; }
+
+    public ICollection<CarrinhoProduto> Carrinhos { get; set; }
 }
+

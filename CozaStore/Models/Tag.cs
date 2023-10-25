@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CozaStore.Models;
 
 [Table("Tag")]
-
 public class Tag
 {
     [Key]
@@ -12,10 +11,8 @@ public class Tag
     public byte Id { get; set; }
 
     [Required(ErrorMessage = "Informe o Nome")]
-    [StringLength(20, ErrorMessage = "O nome deve possuir no maximo 20 caracteres")]
+    [StringLength(20, ErrorMessage = "O Nome deve possuir no máximo 20 caracteres")]
     public string Nome { get; set; }
-
-
-
+    
     public ICollection<ProdutoTag> Produtos { get; set; }
 }
