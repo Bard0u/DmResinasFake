@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using CozaStore.Data;
 using System.Net.Mail;
+using System.Security.Claims;
 
 namespace CozaStore.Controllers
 {
@@ -44,7 +45,7 @@ namespace CozaStore.Controllers
                 if (IsValidEmail(login.Email))
                 {
                     var user = await _userManager.FindByEmailAsync(login.Email);
-                    if (user !=null )
+                    if (user != null)
                         userName = user.UserName;
                 }
 
@@ -52,12 +53,12 @@ namespace CozaStore.Controllers
                   userName, login.Senha, login.Lembrar, lockoutOnFailure: true
                 );
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     _logger.LogInformation($"Usuario {login.Email} acessou o sistema");
                     return LocalRedirect(login.UrlRetorno);
                 }
-                if(result.IsLockedOut)
+                if (result.IsLockedOut)
                 {
                     _logger.LogWarning($"Usuario {login.Email} está bloqueado");
                     return RedirectToAction("Lockout");
@@ -68,12 +69,33 @@ namespace CozaStore.Controllers
             return View(login);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            _logger.LogInformation($"Usuário {ClaimTypes.Email} fez logoff");
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            RegisterVM register = new();
+            return View(register);
+        }
+
+
         public static bool IsValidEmail(string email)
         {
-            try{
+            try
+            {
                 MailAddress mail = new(email);
                 return true;
-            } catch {
+            }
+            catch
+            {
                 return false;
             }
         }
