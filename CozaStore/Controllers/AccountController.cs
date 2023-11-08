@@ -6,15 +6,15 @@ using System.Net.Mail;
 
 namespace CozaStore.Controllers
 {
-    public class AccountControler : Controller
+    public class AccountController : Controller
     {
-        private readonly ILogger<AccountControler> _logger;
+        private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly AppDbContext _contexto;
 
-        public AccountControler(
-            ILogger<AccountControler> logger,
+        public AccountController(
+            ILogger<AccountController> logger,
             SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
             AppDbContext contexto)
@@ -33,6 +33,9 @@ namespace CozaStore.Controllers
             };
             return View(login);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginVM login)
         {
             if (ModelState.IsValid)
